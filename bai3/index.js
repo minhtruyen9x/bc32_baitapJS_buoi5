@@ -42,23 +42,23 @@ function calcMoney(income, number) {
     //tính thu nhập chịu thuế
     let sum = income - 4000000 - number*1600000;
 
-    //kiểm tra các khoảng income tương ứng sẽ nhân sum với tỉ lệ chịu thuế tương ứng
-    if(income <= 60000000) {
+    //kiểm tra các khoảng sum tương ứng sẽ nhân sum với tỉ lệ chịu thuế tương ứng
+    if(sum <= 60000000) {
         sum *= 0.05;
     }
-    else if(number <= 1200000) {
+    else if(sum <= 1200000) {
         sum *= 0.1;
     }
-    else if(number <= 210000000) {
+    else if(sum <= 210000000) {
         sum *= 0.15;
     }
-    else if(number <= 384000000) {
+    else if(sum <= 384000000) {
         sum *= 0.2;
     }
-    else if(number <= 624000000) {
+    else if(sum <= 624000000) {
         sum *= 0.25;
     }
-    else if(number <= 960000000) {
+    else if(sum <= 960000000) {
         sum *= 0.3;
     }
     else {
@@ -90,6 +90,6 @@ document.getElementById('button').onclick = function () {
         sum = 0;
     }
     text = "Họ tên: " + name + "\n"+
-        " Tổng thuế cần đóng: " + sum.toLocaleString("vn-VN") + "VND";
+        " Tổng thuế cần đóng: " + sum.toLocaleString("vn-VN") + " VND";
     throwMess(text,output);
 }
