@@ -36,7 +36,7 @@ function throwMess(message, Element) {
 
 function validInput(score1, score2, score3, benchmark) {
     if (score1 < 0 || score2 < 0 || score3 < 0 || benchmark < 0 ||
-        score1 > 10 || score2 > 10 || score3 > 10 || benchmark > 30 ||
+        score1 > 10 || score2 > 10 || score3 > 10 || benchmark > 34.5 ||
         isNaN(score1) || isNaN(score2) || isNaN(score3) || isNaN(benchmark)) {
         return false;
     } else {
@@ -68,15 +68,17 @@ document.getElementById('button').onclick = function () {
 
     //Kiểm tra tính hợp lệ của diểm số
     if (!validInput(score1, score2, score3, benchmark, score2)) {
-        text = "Yêu cầu nhập điểm hợp lệ";
+        text = "Yêu cầu nhập điểm hợp lệ\n"+
+        "Mỗi môn cao nhất 10 điểm, thấp nhất là 0\n"+
+        "Điểm chuẩn không cao hơn 34.5";
         throwMess(text, output);
         return;
     }
 
     //nếu có một trong 3 môn bằng 0 sẽ trượt
     if (!checkScore(score1, score2, score3)) {
-        text = "chúc mừng " + name + " đã trượt kỳ thi\n"+
-        "Có điểm 0 ít nhất 1 môn";
+        text = name + " đã trượt kỳ thi\n"+
+        "Do có điểm 0 ít nhất 1 môn";
         throwMess(text, output);
         return;
     }
@@ -137,7 +139,7 @@ document.getElementById('button').onclick = function () {
         "Tổng điểm đạt được: " + sum;
     }
     else if (sum === benchmark) {
-        text = "may mắn " + name + " vừa đủ điểm vượt qua\n" +
+        text = "May mắn " + name + " vừa đủ điểm vượt qua\n" +
         "Tổng điểm đạt được: " + sum;
     }
     else {
