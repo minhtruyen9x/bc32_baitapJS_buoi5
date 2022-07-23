@@ -108,15 +108,15 @@ document.getElementById('button').onclick = function () {
     let prio2;
     switch (object) {
         case "1": {
-            prio2 = 2;
+            prio2 = 2.5;
             break;
         }
         case "2": {
-            prio2 = 1;
+            prio2 = 1.5;
             break;
         }
         case "3": {
-            prio2 = 0.5;
+            prio2 = 1;
             break;
         }
         case "0": {
