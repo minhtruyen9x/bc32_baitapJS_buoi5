@@ -43,13 +43,13 @@ function validInput(service, channels) {
 }
 
 function validID(id) {
-    if (id.length < 8) {
+    if (id.length < 8 || id.length > 12) {
         return false;
     }
     return true;
 }
 
-function calcMoney(service, channels, connect = 0) {
+function calcMoney(service, channels, connect) {
     //tính thu nhập chịu thuế
     let sum = 0;
     if (service === "0") {
@@ -85,7 +85,7 @@ document.getElementById('button').onclick = function () {
     let text = '';
     //Kiểm tra ID phải có ít nhất 9 ký tự
     if (!validID(id)) {
-        text = "ID không tồn tại\nVui lòng nhập đúng ID gồm 9 ký tự (0-9 a-z) trở lên";
+        text = "ID không hợp lệ\nVui lòng nhập ID gồm 9 đến 12 ký tự trở lên";
         throwMess(text, output);
         return;
     }
